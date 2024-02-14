@@ -4,6 +4,7 @@ import { HiHome } from "react-icons/hi";
 import { twMerge } from "tailwind-merge";
 import Button from "./Button";
 import { useState } from "react";
+import Link from "next/link";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -51,13 +52,13 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
       </div>
       <div className="text-lg flex items-center gap-x-2 justify-center">
         {links.map((link, index) => (
-          <a
-            key={index}
-            className='rounded-full p-2 hover:bg-neutral-900 cursor-pointer'
-            href={link.url}
+          <Link 
+          key={index} 
+          href={link.url}
+          className='rounded-full p-2 hover:bg-neutral-900 cursor-pointer'
           >
-            {link.text}
-          </a>
+          {link.text}
+        </Link>
         ))}
       </div>
       {children}
