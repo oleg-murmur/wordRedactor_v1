@@ -17,8 +17,8 @@ const ContainerContent = () => {
   ];
     
   return (
-    <div className="flex-col">
-      <div className="inline-flex flex-col gap-2"
+    <div  className="flex justify-start w-[500px] ">
+      <div className="inline-flex flex-col gap-2 "
       >
         {title.map((e) => (
             <TitleBlock key={e.type} type={e.type} title={e.title}/>
