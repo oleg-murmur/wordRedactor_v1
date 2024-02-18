@@ -1,14 +1,19 @@
-"use client";
+"use client"
+import { Dispatch, SetStateAction } from "react";
+import { ConstructorComponentsProps } from "./TitleBlock";
 
 interface ButtonProps {
   type: string;
   title: string;
+  func: (objectConstructorComponent: ConstructorComponentsProps) => void;
+  component: JSX.Element;
+  advice: string;
 }
 
-const ButtonAddInput: React.FC<ButtonProps> = ({ type, title }) => {
+const ButtonAddInput: React.FC<ButtonProps> = ({ component,type, title, advice, func }) => {
   
   const handleButtonClick = () => {
-    // Ваша логика обработки нажатия на кнопку
+    func({type: type, advice: advice, component})
   };
   return (
     <>
