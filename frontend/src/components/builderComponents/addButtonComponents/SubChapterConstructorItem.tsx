@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TitleInput from '../TitleInputComponent'
 import ParagraphConstructorItem from './ParagraphConstructorItem';
-import { ConstructorComponentsProps } from '../TitleBlock';
+import { ConstructorComponentsProps } from '../../FileSections/TitleBlock';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import ButtonAddInput from '../ButtonAddInput';
 import ImageConstructorItem from './ImageConstructorItem';

@@ -2,12 +2,13 @@
 import { JSXElementConstructor, PromiseLikeOfReactNode, ReactComponentElement, ReactElement, ReactNode, ReactPortal, useEffect, useMemo, useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { BsChevronUp } from "react-icons/bs";
-import ButtonAddInput from "./ButtonAddInput";
-import TitleInput from "./TitleInputComponent";
-import ParagraphConstructorItem from "./addButtonComponents/ParagraphConstructorItem";
-import ChapterConstructorItem from "./addButtonComponents/ChapterConstructorItem";
-import SubChapterConstructorItem from "./addButtonComponents/SubChapterConstructorItem";
-import ImageConstructorItem from "./addButtonComponents/ImageConstructorItem";
+import ButtonAddInput from "../builderComponents/ButtonAddInput";
+import TitleInput from "../builderComponents/TitleInputComponent";
+import ParagraphConstructorItem from "../builderComponents/addButtonComponents/ParagraphConstructorItem";
+import ChapterConstructorItem from "../builderComponents/addButtonComponents/ChapterConstructorItem";
+import SubChapterConstructorItem from "../builderComponents/addButtonComponents/SubChapterConstructorItem";
+import ImageConstructorItem from "../builderComponents/addButtonComponents/ImageConstructorItem";
+import ButtonPopUpHook from "@/hooks/ButtonPopUpHook";
 
 interface TitleBlockProps {
   type: string;
@@ -43,9 +44,6 @@ const TitleBlock: React.FC<TitleBlockProps> = ({ type, title }) => {
   //   { type: "addImage", title: "Добавить изображение" },
   // ];
   
-  const handleClick = () => {
-    setIsActive((prev) => !prev);
-  };
 // useEffect(()=> {
 
 // },[])
@@ -56,17 +54,7 @@ const TitleBlock: React.FC<TitleBlockProps> = ({ type, title }) => {
 
   return (
     <div className="">
-      <button
-        onClick={handleClick}
-        className="bg-neutral-600 p-2 rounded-sm w-[300px] text-left relative cursor-pointer rounded-md"
-      >
-        {title}
-        {isActive ? (
-        <BsChevronUp className="absolute top-[8px] right-[8px]" size={25} />
-      ) : (
-        <BsChevronDown className="absolute top-[8px] right-[8px]" size={25} />
-      )}
-      </button>
+    <ButtonPopUpHook title={title} isActive={isActive} setIsActive={setIsActive}/>
     
       {isActive && (
         <>

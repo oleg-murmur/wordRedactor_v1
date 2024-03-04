@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import TitleInput from '../TitleInputComponent'
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import ButtonAddInput from '../ButtonAddInput';
-import { ConstructorComponentsProps } from '../TitleBlock';
+import { ConstructorComponentsProps } from '../../FileSections/TitleBlock';
 import ParagraphConstructorItem from './ParagraphConstructorItem';
 import SubChapterConstructorItem from './SubChapterConstructorItem';
 import ImageConstructorItem from './ImageConstructorItem';
