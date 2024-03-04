@@ -1,6 +1,6 @@
 "use client"
 import { Dispatch, SetStateAction } from "react";
-import { ConstructorComponentsProps } from "./TitleBlock";
+import { ConstructorComponentsProps } from "../FileSections/TitleBlock";
 
 interface ButtonProps {
   type: string;

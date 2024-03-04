@@ -1,5 +1,10 @@
 "use client";
-import TitleBlock from "./TitleBlock";
+import Abstract from "../FileSections/Abstract";
+import Assignment from "../FileSections/Assignment";
+import BooksAndSources from "../FileSections/BooksAndSources";
+import Conclusion from "../FileSections/Conclusion";
+import TitleList from "../FileSections/TitleList";
+import TitleBlock from "../FileSections/TitleBlock";
 
 interface Title {
   type: string;
@@ -7,22 +12,17 @@ interface Title {
 }
 
 const ContainerContent = () => {
-  const title: Title[] = [
-    { type: "addTitleList", title: "Титульный лист" },
-    { type: "addAssignment", title: "Задание преподавателя" },
-    { type: "addAbstract", title: "Реферат" },
-    { type: "addChapter", title: "Главы" },
-    { type: "addConclusion", title: "Заключение" },
-    { type: "addSources", title: "Источники" }
-  ];
     
   return (
     <div  className="flex justify-start w-[500px] ">
       <div className="inline-flex flex-col gap-2 "
       >
-        {title.map((e) => (
-            <TitleBlock key={e.type} type={e.type} title={e.title}/>
-        ))}
+        <TitleList/>
+        <Assignment/>
+        <Abstract  key={"addAbstract"} type={"addAbstract"} title={"Реферат"}/>
+        <TitleBlock key={"addChapter"} type={"addChapter"} title={"Главы"}/>
+        <Conclusion  key={"addConclusion"} type={"addConclusion"} title={"Заключение"}/>
+        <BooksAndSources  key={"addSources"} type={"addSources"} title={"Источники"}/>
       </div>
     </div>
   );
