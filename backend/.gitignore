@@ -4,6 +4,7 @@
 /build
 Dockerfile
 .dockerignore
+pgdata
 # Logs
 logs
 *.log
