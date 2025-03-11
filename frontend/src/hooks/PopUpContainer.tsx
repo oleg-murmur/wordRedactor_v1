@@ -1,5 +1,5 @@
 import ButtonAddInput from '@/components/builderComponents/ButtonAddInput';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 interface ButtonPopUp {
@@ -17,7 +17,7 @@ export interface ConstructorComponentsProps {
   }
 
 
-const PopUpContainer: React.FC<ButtonPopUp> = React.memo(({title,isActive,setIsActive,component}) => {
+const PopUpContainer: React.FC<ButtonPopUp> = ({title,isActive,setIsActive,component}) => {
 
     const [ConstructorComponentsList, setConstructorComponentsList] = useState<ConstructorComponentsProps[]>([
         {
@@ -30,11 +30,13 @@ const PopUpContainer: React.FC<ButtonPopUp> = React.memo(({title,isActive,setIsA
       const selectElement= (objectConstructorComponent: ConstructorComponentsProps) => {
         setConstructorComponentsList([...ConstructorComponentsList, objectConstructorComponent])
       }
-
+      useEffect(()=>{
+        console.log(ConstructorComponentsList)
+      },[ConstructorComponentsList,])
     return (
-        <>
+        <div>
         {isActive && (
-        <>
+        <div>
           {ConstructorComponentsList.map((mass: { type: string,component: JSX.Element, advice: string }) => 
         <div className="pl-[50px]" key={Math.random()}>
           {mass.advice}
@@ -44,10 +46,10 @@ const PopUpContainer: React.FC<ButtonPopUp> = React.memo(({title,isActive,setIsA
         <div className="inline-flex flex-col gap-2">
           <ButtonAddInput  advice={'скопируйте сюда первый абзац'}  component={component} func={selectElement} key={"addParagraph"}  type={"addParagraph"} title={"Добавить абзац"}/>
          </div>
-      </>
+      </div>
       )}
-      </>
+      </div>
       )
-})
+}
 
 export default PopUpContainer
